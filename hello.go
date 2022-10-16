@@ -25,6 +25,6 @@ func main() {
 	* 8080 for the incoming request to the application.
 	 */
 	log.Println("Serving content on :8080")
-	http.ListenAndServe("localhost:8080", nil)
+	http.ListenAndServe("0.0.0.0:8080", nil)
 
 }
