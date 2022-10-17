@@ -11,3 +11,9 @@ phases:
       - echo Build started on `date`
       - echo Pushing docker image to ECR
       - docker build -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/hello:latest .
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image
+      - docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/hello:latest
