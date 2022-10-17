@@ -1,6 +1,9 @@
 version: 0.2
 
 phases:
+  test:
+    commands:
+      - echo ${AWS_ACCOUNT_ID}
   pre_build:
     commands:
       - echo Logging in to Amazon ECR
