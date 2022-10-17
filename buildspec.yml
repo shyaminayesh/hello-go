@@ -1,13 +1,9 @@
 version: 0.2
 
 phases:
-  test:
-    commands:
-      - echo ${AWS_ACCOUNT_ID}
   pre_build:
     commands:
-      - echo Logging in to Amazon ECR
-      - aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+      - echo ${AWS_ACCOUNT_ID}
 
   build:
     commands:
