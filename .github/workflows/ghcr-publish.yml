@@ -16,5 +16,4 @@ jobs:
       - name: Build
         run:
           docker build . --tag ghcr.io/shyaminayesh/hello-go:latest
-          docker run ghcr.io/shyaminayesh/hello-go:latest
           docker push ghcr.io/shyaminayesh/hello-go:latest
