@@ -1,0 +1,20 @@
+name: ghcr-publish
+on: [ push ]
+
+jobs:
+
+  ghcr-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login (GHCR)
+        uses: docker/login-action@
+        with:
+         registry: ghcr.io
+         username: ${{ github.actor }}
+         password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build
+        run:
+          docker build . --tag ghcr.io/shyaminayesh/hello-go:latest
+          docker run ghcr.io/shyaminayesh/hello-go:latest
+          docker push ghcr.io/shyaminayesh/hello-go:latest
